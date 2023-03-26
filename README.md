@@ -1,2 +1,2 @@
-# problemSolving-Data-structures
+# problem-solving-data-structures
 practice
