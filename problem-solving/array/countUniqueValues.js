@@ -1,7 +1,7 @@
 //two pointers
 //checks if they are equal value,
-//count variable that counts when not equal
-//return number of counts
+//if not, the current moves and the next moves by 1 of the current
+//if they are, the next is removed and the current doesn't move with the decrement untill they are not the same
 function countUniqueValues(arr) {
   if (arr.length == 0) {
     return 0;
