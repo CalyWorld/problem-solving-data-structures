@@ -1,10 +1,8 @@
 function capitalizeFirst(arr) {
   let newArrStr = "";
 
-  let capitalArr = [];
-
   //base case to check when the original arr is empty
-  if (arr.length === 0) return capitalArr;
+  if (arr.length === 0) return [];
 
   //gets first item in origial arr
   let firstArr = arr[0];
@@ -18,14 +16,14 @@ function capitalizeFirst(arr) {
   //concatenate capitalized first character with the rest of character in first element in original arr
   newArrStr = firstCharCapital + newCharStr;
 
-  //push the newArrString which contains capitalized first char into newArr
-  capitalArr.push(newArrStr);
-
   //remove the first element in an arr
   let newArr = arr.splice(1);
 
   //call the recursive function again
-  return capitalizeFirst(newArr);
+  let rest = capitalizeFirst(newArr);
+
+  //return the capitalized first char of everytime in a new array
+  return [newArrStr, ...rest] ;
 }
 
 capitalizeFirst(["car", "taco", "banana"]); // ['Car','Taco','Banana']
