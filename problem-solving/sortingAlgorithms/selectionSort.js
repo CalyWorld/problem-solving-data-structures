@@ -14,9 +14,12 @@ function selectionSort(arr){
                 lowestNum = j;
             }
         }
-        //when the loop has been completed,
+         //if we have numbers in arr similar to our current index, no swap
+        if(i !== lowestNum){
+             //when the loop has been completed,
         //pass the arr with the current i iteration and lowest number position index to modify original array
         swap(arr, i, lowestNum);
+        }
     }
 
     //when the outerloop is done, return arr
