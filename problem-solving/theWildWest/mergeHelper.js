@@ -4,8 +4,6 @@ function merge(arr1, arr2, comparator) {
   let j = 0;
 
   while (i < arr1.length && j < arr2.length) {
-    let check = comparator(arr1[i], arr2[j]);
-
     if (typeof comparator !== "function") {
       if (arr1[i] < arr2[j]) {
         sorted.push(arr1[i]);
@@ -15,8 +13,9 @@ function merge(arr1, arr2, comparator) {
         j++;
       }
     } else {
+      let check = comparator(arr1[i], arr2[j]);
       if (check >= 0) {
-        sorted.push(arr2[j]);``
+        sorted.push(arr2[j]);
         j++;
       } else {
         sorted.push(arr1[i]);
