@@ -20,8 +20,9 @@ function radixSort(nums) {
   let maxDigitCount = mostDigits(nums);
   //loop untill max digit of the highest element in the array for instance maxDigitCount is 4 (5467) so i < 3 since we are starting our i as 0
   for (let k = 0; k < maxDigitCount; k++) {
-    //create arrays inside an array with length of 10 as our bucket container
+    //create arrays inside an array with length of 10 as our bucket container [[],[],[] .... 9th array]
     let digitBuckets = Array.from({ length: 10 }, () => []);
+    
     for (let i = 0; i < nums.length; i++) {
       //we want to get the last digit for each element in the array
       let digit = getDigit(nums[i], k);
