@@ -60,6 +60,44 @@ class SinglyLinkedList {
     //return the last node
     return current;
   }
+  delete(id) {
+    if (!this.head) return undefined; // List is empty, nothing to delete
+
+    if (this.head.id === id) {
+      this.length--;
+      this.head = this.head.next;
+      if (this.length === 0) {
+        this.tail = null; // List becomes empty, update the tail reference
+      }
+      return;
+    }
+
+    //we assign a variable to item which will move through the list
+    let current = this.head;
+    //we assign a variable to the previous item before current item
+    let previous = null;
+
+    //if it's not the head
+    //we are looping the list
+    while (current) {
+      //check to get item of matched id
+      if (current.id === id) {
+        //we are now pointing to the item that comes after current using the previous item
+        previous.next = current.next;
+        //if our item is at tail
+        if (current === this.tail) {
+          //we point to previous item as tail
+          this.tail = previous;
+        }
+        this.length--;
+        return;
+      }
+      //we assign the current to previous
+      previous = current;
+      //we assign the current to point to the next so we can loop again
+      current = current.next;
+    }
+  }
 }
 
 let first = new SinglyLinkedList();
@@ -68,3 +106,15 @@ first.push(6);
 first.push(7);
 console.log(first.pop());
 console.log(first);
+
+//using objects
+// let collection1 = new SinglyLinkedList();
+// let collection2 = new SinglyLinkedList();
+
+// collection1.push({ name: 'Alice', age: 25 });
+// collection1.push({ name: 'Bob', age: 30 });
+// collection1.push({ name: 'Charlie', age: 35 });
+// collection2.push({ name: 'Charlie', age: 35 });
+// // console.log(collection.pop());
+// console.log("firstCollection", collection1);
+// console.log("secondCollection", collection2);
