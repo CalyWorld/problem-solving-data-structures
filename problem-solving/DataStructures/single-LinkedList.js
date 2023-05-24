@@ -107,14 +107,25 @@ first.push(7);
 console.log(first.pop());
 console.log(first);
 
-//using objects
-// let collection1 = new SinglyLinkedList();
-// let collection2 = new SinglyLinkedList();
+// // Create a new singly linked list
+// let myList = new SinglyLinkedList();
 
-// collection1.push({ name: 'Alice', age: 25 });
-// collection1.push({ name: 'Bob', age: 30 });
-// collection1.push({ name: 'Charlie', age: 35 });
-// collection2.push({ name: 'Charlie', age: 35 });
-// // console.log(collection.pop());
-// console.log("firstCollection", collection1);
-// console.log("secondCollection", collection2);
+// // Add nodes to the list
+// myList.push(1, "hi", [{id: 1, input: "Hi", response:"Hello"}]);
+// myList.push(2, "hello", [{id: 2, input: "Hello", response:"How are you"}]);
+// myList.push(3, "yea", [{id: 3, input: "yea", response:"what can i do for you?"}]);
+// myList.push(4, "hmmm", [{id: 4, input: "hmm", response:"what do you mean?"}]);
+// myList.push(5, "hmmm", [{id: 5, input: "hmm", response:"what do you mean?"}]);
+
+
+// // console.log('list:', myList);
+// // console.log("last item in list", myList.pop());
+// // console.log('list:', myList);
+
+// // myList.delete(1);
+// console.log(myList.delete(2));
+// // myList.delete(3);
+// // myList.delete(4);
+
+
+// console.log('After deletion:', myList);
