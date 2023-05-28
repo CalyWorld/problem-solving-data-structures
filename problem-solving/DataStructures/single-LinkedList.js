@@ -23,7 +23,7 @@
 //         }else{
 //             //since this.tail is pointing to the head, we get the next property in this.head and point to the next node
 //             this.tail.next = newNode;
-//             //updates the tail with the newNode 
+//             //updates the tail with the newNode
 //             this.tail = newNode;
 //         }
 //         //updatesnumber of items in the list
@@ -33,7 +33,7 @@
 //     }
 //     //return the node from the end of the linked list
 //     pop(){
-//         //if there is no list 
+//         //if there is no list
 //         if(!this.head) return undefined;
 //         //set the current to the head node that is created already
 //         let current = this.head;
@@ -52,9 +52,9 @@
 //         this.tail.next = null;
 //         //reduce the number of items in list
 //         this.length --;
-//         //return the last node 
+//         //return the last node
 //         return current;
-        
+
 //     }
 // }
 
@@ -95,34 +95,34 @@ class SinglyLinkedList {
     }
     this.length++;
   }
-   pop(){
-      if(!this.head) return undefined;
-       let current = this.head;
-       let newTail = current;
-       while(current.next){
-           //update newTail
-           newTail = current;
-           //loop to the next item in the list
-           current = current.next;
-       }
-       //set as tail with second to last item from last loop
-       this.tail = newTail;
-       //since we removed the last item, we set the second to last item next property to null
-       this.tail.next = null;
-       //reduce the size of list
-       this.length--;
+  pop() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      //update newTail
+      newTail = current;
+      //loop to the next item in the list
+      current = current.next;
+    }
+    //set as tail with second to last item from last loop
+    this.tail = newTail;
+    //since we removed the last item, we set the second to last item next property to null
+    this.tail.next = null;
+    //reduce the size of list
+    this.length--;
 
-       if(this.length === 0){
-           this.head = null;
-           this.tail = null;
-       }
-       return current 
-   } 
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
   //   delete(id) {
   //   if (!this.head) {
   //     return undefined; // List is empty, nothing to delete
   //   }
-  
+
   //   if (this.head.id === id) {
   //     this.length--;
   //     this.head = this.head.next;
@@ -136,7 +136,7 @@ class SinglyLinkedList {
   //   let current = this.head;
   //     //we assign a variable to the previous item before current item
   //   let previous = null;
-  
+
   //   //if it's not the head
   //     //we are looping the list
   //     while(current){
@@ -146,11 +146,11 @@ class SinglyLinkedList {
   //         previous.next = current.next;
   //         //if our item is at tail
   //         if(current === this.tail){
-  //           //we point to previous item as tail 
+  //           //we point to previous item as tail
   //           this.tail = previous;
   //         }
   //         this.length --;
-  //         return;          
+  //         return;
   //       }
   //       //we assign the current to previous
   //       previous = current;
@@ -158,58 +158,57 @@ class SinglyLinkedList {
   //       current = current.next;
   //     }
   // }
-  shift(){
-    if(!this.head) return undefined;
+  shift() {
+    if (!this.head) return undefined;
     let current = this.head;
     this.head = current.next;
     this.length--;
-    if(this.length === 0){
+    if (this.length === 0) {
       this.tail = null;
     }
     return current;
   }
-  unshift(id, name, collection){
+  unshift(id, name, collection) {
     // let current = this.head;
     let newNode = new Node(id, name, collection);
-    if(!this.head){
+    if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-    }else{
-    newNode.next = this.head;
-    this.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
     }
     this.length++;
     return this.head;
   }
-  get(index){
-    if(index < 0 || index >= this.length) return false;
+  get(index) {
+    if (index < 0 || index >= this.length) return false;
     let counter = 0;
     let current = this.head;
-    while(current){
-        if(counter === index){
+    while (current) {
+      if (counter === index) {
         return current;
       }
       counter++;
       current = current.next;
     }
   }
-  set(value, index){
+  set(value, index) {
     let foundNode = this.get(index);
-     if(foundNode){
-       foundNode.name = value;
-     }
-  }
-  insert(index, id, name, collection){
-    if(index < 0 || index > this.length) return false;
-    let newNode = new Node(id, name, collection);
-    if(index === this.length){
-      return this.push(newNode.id, newNode.name, newNode.collection);
+    if (foundNode) {
+      foundNode.name = value;
     }
-    else if(index === 0){
+  }
+  insert(index, id, name, collection) {
+    if (index < 0 || index > this.length) return false;
+    let newNode = new Node(id, name, collection);
+    if (index === this.length) {
+      return this.push(newNode.id, newNode.name, newNode.collection);
+    } else if (index === 0) {
       return this.unshift(newNode.id, newNode.name, newNode.collection);
-    }else{
+    } else {
       // get previous node before current index position
-      let previousNode = this.get(index-1);
+      let previousNode = this.get(index - 1);
       //store the next node after previous node
       let tempNode = previousNode.next;
       // change the reference point of previous node to new node
@@ -221,16 +220,16 @@ class SinglyLinkedList {
       return true;
     }
   }
-  remove(index){
-    if(index < 0 || index > this.length) return undefined;
-    if(index === this.length-1){
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) {
       return this.pop();
     }
-    if(index === 0){
+    if (index === 0) {
       return this.shift();
-    }else{
+    } else {
       //get the previous Node
-      let previousNode = this.get(index-1);
+      let previousNode = this.get(index - 1);
       //store the node that i want to delete
       let removeNode = previousNode.next;
       //point to the removeNode next to reference connections to removed node
@@ -238,28 +237,28 @@ class SinglyLinkedList {
       this.length--;
     }
   }
-  print(){
+  print() {
     const arr = [];
     let current = this.head;
-    while(current){
+    while (current) {
       arr.push(current.id);
       current = current.next;
     }
-     console.log(arr);
+    console.log(arr);
   }
 
-  reverse(){
-   let tempHead = this.head;
-   this.head = this.tail;
-   this.tail = tempHead;
-   let next = null;
-   let prev = null;
-   for(let i = 0; i<this.length; i++){
-     next = tempHead.next;  //2 3 4 5
-     tempHead.next = prev;  //null 1 2 3
-     prev = tempHead; //1 2 3 4
-     tempHead = next; //2 3 4 5
-   }
+  reverse() {
+    let tempHead = this.head;
+    this.head = this.tail;
+    this.tail = tempHead;
+    let next = null;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = tempHead.next; //2 3 4 5
+      tempHead.next = prev; //null 1 2 3
+      prev = tempHead; //1 2 3 4
+      tempHead = next; //2 3 4 5
+    }
   }
 }
 
@@ -267,12 +266,15 @@ class SinglyLinkedList {
 let myList = new SinglyLinkedList();
 
 // Add nodes to the list
-myList.push(1, "hi", [{id: 1, input: "Hi", response:"Hello"}]);
-myList.push(2, "hello", [{id: 2, input: "Hello", response:"How are you"}]);
-myList.push(3, "yea", [{id: 3, input: "yea", response:"what can i do for you?"}]);
-myList.push(4, "ok", [{id: 4, input: "ok", response:"what do you mean?"}]);
-myList.push(5, "hmmm", [{id: 5, input: "hmm", response:"what do you mean?"}]);
-
+myList.push(1, "hi", [{ id: 1, input: "Hi", response: "Hello" }]);
+myList.push(2, "hello", [{ id: 2, input: "Hello", response: "How are you" }]);
+myList.push(3, "yea", [
+  { id: 3, input: "yea", response: "what can i do for you?" },
+]);
+myList.push(4, "ok", [{ id: 4, input: "ok", response: "what do you mean?" }]);
+myList.push(5, "hmmm", [
+  { id: 5, input: "hmm", response: "what do you mean?" },
+]);
 
 // console.log('list:', myList);
 // console.log("last item in list", myList.pop());
@@ -285,7 +287,6 @@ myList.push(5, "hmmm", [{id: 5, input: "hmm", response:"what do you mean?"}]);
 // myList.delete(3);
 // myList.delete(4);
 
-
 // console.log('After deletion:', myList);
 // console.log('After shift:', myList);
 // console.log(myList.get(4));
@@ -294,4 +295,4 @@ myList.push(5, "hmmm", [{id: 5, input: "hmm", response:"what do you mean?"}]);
 // myList.remove(2);
 myList.reverse();
 // myList.print();
-console.log('list:', myList);
+console.log("list:", myList);
