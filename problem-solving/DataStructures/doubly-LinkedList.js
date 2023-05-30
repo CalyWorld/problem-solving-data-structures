@@ -100,15 +100,12 @@ class DoublyLinkedList {
     } else if (index === 0) {
       return this.unshift(val);
     } else {
-      //   let currentNode = this.get(index);
-      //   // return currentNode //1
-      // let counter = 0;
-      // while(counter < this.length){
-      //   let prevNode = currentNode.prev  //0
-      //   prevNode.next = newNode; //0 3 1 2 3
-      //   newNode.prev = prevNode;
-      //   newNode.next = currentNode;
-      //   counter++;
+       let prevNode = this.get(index-1);
+       let nextNode = prevNode.next;
+       prevNode.next = newNode;
+       newNode.prev = prevNode;
+       newNode.next = nextNode;
+       nextNode.prev = newNode;
     }
     this.length++;
   }
