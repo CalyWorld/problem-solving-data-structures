@@ -100,14 +100,30 @@ class DoublyLinkedList {
     } else if (index === 0) {
       return this.unshift(val);
     } else {
-       let prevNode = this.get(index-1);
-       let nextNode = prevNode.next;
-       prevNode.next = newNode;
-       newNode.prev = prevNode;
-       newNode.next = nextNode;
-       nextNode.prev = newNode;
+      let prevNode = this.get(index - 1);
+      let nextNode = prevNode.next;
+      prevNode.next = newNode;
+      newNode.prev = prevNode;
+      newNode.next = nextNode;
+      nextNode.prev = newNode;
     }
     this.length++;
+  }
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    if (index === 0) {
+      return this.shift();
+    } else {
+      let prevNode = this.get(index - 1);
+      let removeNode = prevNode.next;
+      let nextNode = removeNode.next;
+      prevNode.next = nextNode;
+      nextNode.prev = prevNode;
+    }
+    this.length--;
   }
 }
 
