@@ -25,7 +25,7 @@ class Queue {
   dequeue() {
     if (!this.first) return null;
     const firstElement = this.first;
-    const nextElement = this.first.next;
+    const nextElement = firstElement.next;
     this.first = nextElement;
     if (this.first === this.last) {
       this.last = null;
