@@ -65,3 +65,6 @@ tree.insert(2);
 tree.insert(16);
 tree.insert(7);
 tree.insert(3);
+
+
+tree.find(10);
