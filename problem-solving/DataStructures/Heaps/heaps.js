@@ -74,12 +74,4 @@ myHeap.insert(100);
 myHeap.insert(200);
 
 myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
+
