@@ -1,5 +1,5 @@
-class hashTable {
-  constructor(size = 10) {
+class HashTable {
+  constructor(size = 53) {
     this.keyMap = new Array(size);
   }
 
@@ -13,6 +13,7 @@ class hashTable {
     }
     return total;
   }
+
   set(key, value) {
     //hash key
     let hashKey = this._hash(key);
@@ -27,11 +28,30 @@ class hashTable {
     hashMap[hashKey].push([key, value]);
     return this.keyMap;
   }
+
+  get(key) {
+    let hashKey = this._hash(key);
+    let hashMap = this.keyMap;
+    if (hashMap[hashKey]) {
+      for (const element of hashMap[hashKey]) {
+        if (element[0] === key) {
+          return element[1];
+        }
+      }
+    }
+    return undefined;
+  }
 }
 
-let hashT = new hashTable();
-hashT.set("hello", "100");
-hashT.set("hi", "100");
-hashT.set("how", "100");
-hashT.set("ok", "100");
-hashT.set("yes", "100");
+let hashT = new HashTable(17);
+hashT.set("maroon", "#800000");
+hashT.set("yellow", "#FFFF00");
+hashT.set("olive", "#808000");
+hashT.set("salmon", "#FA8072");
+hashT.set("lightcoral", "#F08080");
+hashT.set("mediumvioletred", "#C71585");
+hashT.set("plum", "#DDA0DD");
+
+hashT.get("maroon");
+hashT.get("yellow");
+hashT.get("salmon");
