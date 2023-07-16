@@ -77,14 +77,3 @@ const er = new PriorityQueue();
 er.enqueue("common cold", 1);
 er.enqueue("flu", 2);
 er.enqueue("malaria", 3);
-
-// myHeap.dequeue();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
-// myHeap.extractMax();
