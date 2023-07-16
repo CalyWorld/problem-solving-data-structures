@@ -35,11 +35,41 @@ class HashTable {
     if (hashMap[hashKey]) {
       for (const element of hashMap[hashKey]) {
         if (element[0] === key) {
-          return element[1];
+          return element;
         }
       }
     }
     return undefined;
+  }
+  values() {
+    let valuesArr = [];
+    let hashMap = this.keyMap;
+    for (const element of hashMap) {
+      if (element) {
+        for (let value of element) {
+          //handling duplicate values
+          if (!valuesArr.includes(value[j][1])) {
+            valuesArr.push(value[j][1]);
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
+  keys() {
+    let keysArr = [];
+    let hashMap = this.keyMap;
+    for (const element of hashMap) {
+      if (element) {
+        for (let value of element) {
+          //handling duplicate values
+          if (!keysArr.includes(value[j][0])) {
+            keysArr.push(value[0]);
+          }
+        }
+      }
+    }
+    return keysArr;
   }
 }
 
@@ -50,8 +80,20 @@ hashT.set("olive", "#808000");
 hashT.set("salmon", "#FA8072");
 hashT.set("lightcoral", "#F08080");
 hashT.set("mediumvioletred", "#C71585");
+
+//duplicate values
+hashT.set("plum", "#DDA0DD");
+hashT.set("purple", "#DDA0DD");
+hashT.set("violet", "#DDA0DD");
+
+//duplicate keys
+hashT.set("plum", "#DDA0DD");
+hashT.set("plum", "#DDA0DD");
 hashT.set("plum", "#DDA0DD");
 
 hashT.get("maroon");
 hashT.get("yellow");
 hashT.get("salmon");
+
+hashT.values();
+hashT.keys();
