@@ -33,9 +33,9 @@ class HashTable {
     let hashKey = this._hash(key);
     let hashMap = this.keyMap;
     if (hashMap[hashKey]) {
-      for (const element of hashMap[hashKey]) {
-        if (element[0] === key) {
-          return element;
+      for (let i = 0; i < hashMap[hashKey].length; i++) {
+        if (hashMap[hashKey][i][0] === key) {
+          return hashMap[hashKey][i][1];
         }
       }
     }
@@ -44,12 +44,12 @@ class HashTable {
   values() {
     let valuesArr = [];
     let hashMap = this.keyMap;
-    for (const element of hashMap) {
-      if (element) {
-        for (let value of element) {
+    for (let i = 0; i < hashMap.length; i++) {
+      if (hashMap[i]) {
+        for (let j = 0; j < hashMap[i].length; j++) {
           //handling duplicate values
-          if (!valuesArr.includes(value[j][1])) {
-            valuesArr.push(value[j][1]);
+          if (!valuesArr.includes(hashMap[i][j][1])) {
+            valuesArr.push(hashMap[i][j][1]);
           }
         }
       }
@@ -59,12 +59,12 @@ class HashTable {
   keys() {
     let keysArr = [];
     let hashMap = this.keyMap;
-    for (const element of hashMap) {
-      if (element) {
-        for (let value of element) {
+    for (let i = 0; i < hashMap.length; i++) {
+      if (hashMap[i]) {
+        for (let j = 0; j < hashMap[i].length; j++) {
           //handling duplicate values
-          if (!keysArr.includes(value[j][0])) {
-            keysArr.push(value[0]);
+          if (!keysArr.includes(hashMap[i][j][0])) {
+            keysArr.push(hashMap[i][j][0]);
           }
         }
       }
