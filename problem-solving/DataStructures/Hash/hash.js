@@ -35,42 +35,49 @@ class HashTable {
     if (hashMap[hashKey]) {
       for (let i = 0; i < hashMap[hashKey].length; i++) {
         if (hashMap[hashKey][i][0] === key) {
-          return hashMap[hashKey][i][1];
+          return hashMap[hashKey][i];
         }
       }
+      //remove key from hashTable
+      // let filteredpairs = hashMap[hashKey].filter((pair)=> pair[0] !== key);
+      // if(filteredpairs.length < hashMap[hashKey].length){
+      //    // hashMap[hashKey] = filteredpairs;
+      //   return true;
+      // }
+      // return false
     }
     return undefined;
   }
-  values() {
-    let valuesArr = [];
-    let hashMap = this.keyMap;
-    for (let i = 0; i < hashMap.length; i++) {
-      if (hashMap[i]) {
-        for (let j = 0; j < hashMap[i].length; j++) {
-          //handling duplicate values
-          if (!valuesArr.includes(hashMap[i][j][1])) {
-            valuesArr.push(hashMap[i][j][1]);
-          }
-        }
-      }
-    }
-    return valuesArr;
-  }
-  keys() {
-    let keysArr = [];
-    let hashMap = this.keyMap;
-    for (let i = 0; i < hashMap.length; i++) {
-      if (hashMap[i]) {
-        for (let j = 0; j < hashMap[i].length; j++) {
-          //handling duplicate values
-          if (!keysArr.includes(hashMap[i][j][0])) {
-            keysArr.push(hashMap[i][j][0]);
-          }
-        }
-      }
-    }
-    return keysArr;
-  }
+  // values() {
+  //   let valuesArr = [];
+  //   let hashMap = this.keyMap;
+  //   for (let i = 0; i < hashMap.length; i++) {
+  //     if (hashMap[i]) {
+  //       for (let j = 0; j < hashMap[i].length; j++) {
+  //         //handling duplicate values
+  //         if (!valuesArr.includes(hashMap[i][j][1])) {
+  //           valuesArr.push(hashMap[i][j][1]);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return valuesArr;
+  // }
+  // keys() {
+  //   let keysArr = [];
+  //   let hashMap = this.keyMap;
+  //   for (let i = 0; i < hashMap.length; i++) {
+  //     if (hashMap[i]) {
+  //       for (let j = 0; j < hashMap[i].length; j++) {
+  //         //handling duplicate values
+  //         if (!keysArr.includes(hashMap[i][j][0])) {
+  //           keysArr.push(hashMap[i][j][0]);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return keysArr;
+  // }
 }
 
 let hashT = new HashTable(17);
@@ -92,8 +99,9 @@ hashT.set("plum", "#DDA0DD");
 hashT.set("plum", "#DDA0DD");
 
 hashT.get("maroon");
-hashT.get("yellow");
-hashT.get("salmon");
+console.log(hashT);
+// hashT.get("yellow");
+// hashT.get("salmon");
 
-hashT.values();
-hashT.keys();
+// hashT.values();
+// hashT.keys();
