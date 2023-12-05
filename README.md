@@ -13,6 +13,10 @@ Objectives
 
 Graph in my own understanding is interconnection of nodes, there is no parent or children like in Trees, Connections can go to any node and there is no starting nodes.
 
+- pictorial representation
+  
+![graphs](https://github.com/CalyWorld/problem-solving-data-structures/assets/88979648/27140e9a-b996-45ee-89e3-4403fc1bca67)
+
 Uses of Graphs
 
 - Social Networks
