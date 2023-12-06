@@ -88,19 +88,7 @@ Essential Graph Terms
 ```
 
 - Differences & BIG 0
-  - |V| - number of vertices
-  - |E| - number of edges
-    
-  | Operation     | Adjacency List | Adjacency Matrix |
-  | ------------- | -------------- | ---------------- |
-  | Add Vertex    | O(1)           | O (  | V^2 | )   |
-  | Add Edge      | O(1)           |     O(1)         |
-  | Remove vertex | O (|V| + |E|)  | O (  | V^2 | )   |
-  | Remove edge   | O (|E|)|       |     O(1)         |
-  | Query         | O (|V| + |E|)  |     O(1)         |
-  | Storage       | O (|V| + |E|)  | O (  | V^2 | )   |
-  
-  So to simplify this table,
+- 
 **Adjacency list**
 
 | Can take up less space as we are just storing them as a key value pair.
