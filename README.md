@@ -17,8 +17,6 @@ Graph in my own understanding is interconnection of nodes, there is no parent or
 
 ![graphs](https://github.com/CalyWorld/problem-solving-data-structures/assets/88979648/27140e9a-b996-45ee-89e3-4403fc1bca67)
 
-![graphs.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/ddf06e62-fc19-4a7f-b48c-64ad5b1b1637/bfd81710-f0d9-49e5-a0ab-2d20a5645aec/graphs.jpg)
-
                                      A directed graph
 
 Uses of Graphs
