@@ -13,6 +13,10 @@ Objectives
 
 Graph in my own understanding is interconnection of nodes, there is no parent or children like in Trees, Connections can go to any node and there is no starting nodes.
 
+- pictorial representation
+
+![graphs](https://github.com/CalyWorld/problem-solving-data-structures/assets/88979648/27140e9a-b996-45ee-89e3-4403fc1bca67)
+
 ![graphs.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/ddf06e62-fc19-4a7f-b48c-64ad5b1b1637/bfd81710-f0d9-49e5-a0ab-2d20a5645aec/graphs.jpg)
 
                                      A directed graph
@@ -80,15 +84,15 @@ Essential Graph Terms
 - Differences & BIG 0
   - |V| - number of vertices
   - |E| - number of edges
-  | Operation     | Adjacency List | Adjacency Matrix |
-  | ------------- | -------------- | ---------------- | ---- | --- | ---- | --- | ---- | --- | --- |
-  | Add Vertex    | O(1)           |                  | O (  | V^2 | )    |
-  | Add Edge      | O(1)           |                  | O(1) |
-  | Remove vertex | O (            | V                | +    | E   | )    |     | O (  | V^2 | )   |
-  | Remove edge   | O (            | E                | )    |     | O(1) |
-  | Query         | O (            | V                | +    | E   | )    |     | O(1) |
-  | Storage       | O (            | V                | +    | E   | )    |     | O (  | V^2 | )   |
-  So to simplify this table,
+    | Operation | Adjacency List | Adjacency Matrix |
+    | ------------- | -------------- | ---------------- | ---- | --- | ---- | --- | ---- | --- | --- |
+    | Add Vertex | O(1) | | O ( | V^2 | ) |
+    | Add Edge | O(1) | | O(1) |
+    | Remove vertex | O ( | V | + | E | ) | | O ( | V^2 | ) |
+    | Remove edge | O ( | E | ) | | O(1) |
+    | Query | O ( | V | + | E | ) | | O(1) |
+    | Storage | O ( | V | + | E | ) | | O ( | V^2 | ) |
+    So to simplify this table,
 
 **Adjacency list**
 
