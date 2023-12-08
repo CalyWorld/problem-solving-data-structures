@@ -37,6 +37,13 @@ class Graph {
     //     this.adjacencyList[v2].splice(index2, 1);
     // }
   }
+  removeVertex(vertex) {
+    for (let i = this.adjacencyList[vertex].length - 1; i >= 0; i--) {
+      // console.log(`Removing edge between ${vertex} and ${this.adjacencyList[vertex][i]}`);
+      this.removeEdge(vertex, this.adjacencyList[vertex][i]);
+    }
+    delete this.adjacencyList[vertex];
+  }
 }
 
 const graph = new Graph();
@@ -45,5 +52,6 @@ graph.addVertex("Machida");
 graph.addVertex("Newyork");
 graph.addEdges("Tokyo", "Machida");
 graph.addEdges("Newyork", "Tokyo");
-graph.removeEdge("Tokyo", "Machida");
-console.log("after edges were removed", graph.adjacencyList);
+// graph.removeEdge("Tokyo", "Machida");
+graph.removeVertex("Tokyo");
+console.log(graph.adjacencyList);
