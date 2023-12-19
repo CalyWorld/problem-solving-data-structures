@@ -39,19 +39,45 @@ class Graph {
   }
   removeVertex(vertex) {
     for (let i = this.adjacencyList[vertex].length - 1; i >= 0; i--) {
-      // console.log(`Removing edge between ${vertex} and ${this.adjacencyList[vertex][i]}`);
       this.removeEdge(vertex, this.adjacencyList[vertex][i]);
     }
     delete this.adjacencyList[vertex];
   }
+
+  //depth first traversal
+  DFT(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    })(start);
+    return result;
+  }
 }
 
 const graph = new Graph();
-graph.addVertex("Tokyo");
-graph.addVertex("Machida");
-graph.addVertex("Newyork");
-graph.addEdges("Tokyo", "Machida");
-graph.addEdges("Newyork", "Tokyo");
-// graph.removeEdge("Tokyo", "Machida");
-graph.removeVertex("Tokyo");
-console.log(graph.adjacencyList);
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+
+graph.addEdges("A", "B");
+graph.addEdges("A", "C");
+graph.addEdges("B", "D");
+graph.addEdges("C", "E");
+graph.addEdges("D", "E");
+graph.addEdges("D", "F");
+graph.addEdges("E", "F");
+
+graph.DFT("A");
